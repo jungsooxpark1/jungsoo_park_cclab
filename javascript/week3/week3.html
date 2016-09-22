@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE html>
+<!-- Inspired by "http://blog.naver.com/PostView.nhn?blogId=goldsat&logNo=50169086174" -->
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <title>MY FALL 2016 CLASSES</title> 
+  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+</head> 
+<body>
+
+  <div id="name" style="text-align: center; margin: 0 auto;"><h1>😂 MY FALL 2016 CLA$$E$ 😂</h1></div>
+  <div id="map" style="width: 100%; height: 500px;"></div>
+  <script type="text/javascript">
+    var locations = [
+      ['<h2>D12 - 6 E 16th St</h2></br> <a href="https://canvas.newschool.edu/courses/1324583" target="_blank">Major Studio 1 / 1205.6</a></br> <a href="https://canvas.newschool.edu/courses/1324606">Physical Computing / 1204</a></br> <a href="https://canvas.newschool.edu/courses/1324515" target="_blank">D4TC: Rec / 704</a></br><a href="https://canvas.newschool.edu/courses/1324590" target="_blank">CC Lab / 605</a></br>', 40.735742, -73.994541],
+      ['<h2>University Center- 63 5th Ave</h2></br><a href="https://canvas.newschool.edu/courses/1324591" target="_blank">CC Lec / L104</a></br>', 40.735451, -73.993637],
+      ['<h1>Johnson/Kaplan - 66 W 12th St</h2></br><a href="https://canvas.newschool.edu/courses/1324507" target="_blank">D4TC: Lec / 106</a></br> <a href="https://canvas.newschool.edu/courses/1322931">English Seminar / 405</a></br>', 40.735534, -73.997099],
+    ];
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: new google.maps.LatLng(40.735742, -73.994541),
+
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+
+  <style>
+    h1 {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 3em;
+      }
+
+    h2 {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 2em;
+        margin-bottom: -0.3em;
+
+    }
+
+    a{
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1em; 
+    }
+     
+    #market{
+        padding: 50px;
+    }
+  </style>
+    }
+</body>
+</html>
